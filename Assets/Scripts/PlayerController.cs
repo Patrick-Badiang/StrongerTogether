@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     private float someScale;
     public Animator animator;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +30,7 @@ public class PlayerController : MonoBehaviour
 
     
         move_x = Input.GetAxis("Horizontal");
-        animator.SetFloat("Speed", Mathf.Abs(move_x));
+        playerAnim.SetFloat("Speed", Mathf.Abs(move_x));
            
         move_y = Input.GetAxis("Vertical");
         movement = new Vector2 (move_x * mvmt_speed, move_y * mvmt_speed);
