@@ -118113,7 +118113,7 @@ MonoBehaviour:
   mvmt_speed: 0.25
   move_x: 0
   move_y: 0
-  animator: {fileID: 1322261824}
+  playerAnim: {fileID: 1322261824}
 --- !u!61 &1322261826
 BoxCollider2D:
   m_ObjectHideFlags: 0
