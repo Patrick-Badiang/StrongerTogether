@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 movement;
     private float someScale;
+
     public Animator playerAnim;
 
 
@@ -28,7 +29,6 @@ public class PlayerController : MonoBehaviour
     void Update()
     { 
 
-    
         move_x = Input.GetAxis("Horizontal");
         playerAnim.SetFloat("Speed", Mathf.Abs(move_x));
            
@@ -57,11 +57,5 @@ public class PlayerController : MonoBehaviour
         }
       
     }
-
-
-
-
-   
-
 }
  
