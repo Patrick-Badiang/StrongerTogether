@@ -37,7 +37,7 @@ public class EnemyAI : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         
-        InvokeRepeating("UpdatePath", 0f, 1f);
+        InvokeRepeating("UpdatePath", 0f, 0.5f);
 
     }
 
@@ -50,21 +50,21 @@ public class EnemyAI : MonoBehaviour
         float targetDistance = Vector2.Distance(playerPF.position, rb.position);
         if (targetDistance <=range){
         if(seeker.IsDone())
+
         anims.Following(true);
 
         float withinRange = Vector2.Distance(playerPF.position, rb.position);
-        if (withinRange <= attackRange){
+            if (withinRange <= attackRange){
             anims.Attack();
             Collider2D[] playerToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsPlayer);
             timeBtwAttack = startTimeBtwAttack;
                 for(int i = 0; i < playerToDamage.Length; i++){
-                    Debug.Log("attack - enemy");
-                    playerToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
+                    Debug.Log("give player " + damage);
+                    playerToDamage[i].GetComponent<Player>().TakeDamage(damage);
 
                 }
-        }
+            }
         seeker.StartPath(rb.position, playerPF.position, OnPathComplete);
-
         }else{
             anims.Following(false);
         }

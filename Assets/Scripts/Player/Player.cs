@@ -19,8 +19,8 @@ public class Player : MonoBehaviour
     }
 
 
-    void FixedUpdate(){
-
+    public void TakeDamage(int damage){
+        Debug.Log("im hit" + damage);
     }
     
 

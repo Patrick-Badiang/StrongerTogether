@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 3178477407251417377}
   - component: {fileID: 3178477407251417378}
   - component: {fileID: 3178477407251417379}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MidSpirits 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,15 +164,15 @@ MonoBehaviour:
   anims: {fileID: 3178477407251417379}
   timeBtwAttack: 1
   startTimeBtwAttack: 3
-  damage: 0
+  damage: 10
   attackPos: {fileID: 1055539615868696987}
   whatIsPlayer:
     serializedVersion: 2
-    m_Bits: 8
-  speed: 200
+    m_Bits: 0
+  speed: 300
   nextWaypointDistance: 3
   range: 5
-  attackRange: 1
+  attackRange: 3
   enemyGFX: {fileID: 1055539615868696987}
   enemyAnim: {fileID: 3178477407251417378}
 --- !u!50 &9213835697150233794
