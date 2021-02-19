@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 movement;
     private float someScale;
-    public Animator animator;
+    //public Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();   
         someScale = transform.localScale.x; // assuming this is facing right
         movement = new Vector2 (0, 0);
+        
 
     }
 
@@ -29,10 +30,19 @@ public class PlayerController : MonoBehaviour
 
     
         move_x = Input.GetAxis("Horizontal");
-        animator.SetFloat("Speed", Mathf.Abs(move_x));
+        //animator.SetFloat("Speed", Mathf.Abs(move_x));
            
         move_y = Input.GetAxis("Vertical");
         movement = new Vector2 (move_x * mvmt_speed, move_y * mvmt_speed);
+
+        if (Input.GetMouseButtonDown(0)){
+            Attack();
+        }
+        if (Input.GetMouseButtonDown(1)){
+           Defend();
+        }
+
+
     }
 
 
@@ -58,7 +68,13 @@ public class PlayerController : MonoBehaviour
     }
 
 
+    void Attack(){
+        Debug.Log("ATTACK");
+    }
 
+    void Defend(){
+        Debug.Log("DEFEND");
+    }
 
    
 
