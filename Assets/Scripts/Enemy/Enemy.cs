@@ -30,4 +30,12 @@ public class Enemy : MonoBehaviour
         Debug.Log("Taken " + damage + (" damage."));
     }
 
+    public void Following(bool follow){
+        anim.SetBool("following", follow);
+    }
+
+    public void Attack(){
+        anim.SetTrigger("attack");
+    }
+
 }
