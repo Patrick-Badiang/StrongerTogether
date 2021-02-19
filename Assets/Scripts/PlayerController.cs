@@ -12,7 +12,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 movement;
     private float someScale;
-    //public Animator animator;
+    public Animator playerAnim;
+
 
     // Start is called before the first frame update
     void Start()
