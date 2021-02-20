@@ -14,11 +14,18 @@ public class PlayerController : MonoBehaviour
     private float someScale;
 
     public Animator playerAnim;
+    public float maxHealth = 100;
+    public float healthAmount;
+    
+    public LayerMask whatIsEnemy;
+    public Health healthBar;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
+        healthAmount = maxHealth;
         rb = GetComponent<Rigidbody2D>();   
         someScale = transform.localScale.x; // assuming this is facing right
         movement = new Vector2 (0, 0);
@@ -57,5 +64,11 @@ public class PlayerController : MonoBehaviour
         }
       
     }
+
+    void TakeDamage(float damage){
+        healthAmount -= damage;
+        healthBar.SetHealth(healthAmount);
+    }
+
 }
  
