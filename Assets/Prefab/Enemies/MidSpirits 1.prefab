@@ -168,10 +168,10 @@ MonoBehaviour:
   attackPos: {fileID: 1055539615868696987}
   whatIsPlayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   speed: 300
   nextWaypointDistance: 3
-  range: 5
+  range: 7
   attackRange: 3
   enemyGFX: {fileID: 1055539615868696987}
   enemyAnim: {fileID: 3178477407251417378}
@@ -188,7 +188,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 1
+  m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}

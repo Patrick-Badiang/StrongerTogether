@@ -10,7 +10,7 @@ public class EnemyAI : MonoBehaviour
 
     public Enemy anims;
 
-    public float timeBtwAttack = 1f;
+    public float timeBtwAttack = 5f;
     public float startTimeBtwAttack = 3f;
     public int damage;
     public Transform attackPos;
@@ -51,25 +51,26 @@ public class EnemyAI : MonoBehaviour
         if (targetDistance <=range){
         if(seeker.IsDone())
 
-        anims.Following(true);
+        seeker.StartPath(rb.position, playerPF.position, OnPathComplete);
 
         float withinRange = Vector2.Distance(playerPF.position, rb.position);
             if (withinRange <= attackRange){
-            anims.Attack();
             Collider2D[] playerToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsPlayer);
             timeBtwAttack = startTimeBtwAttack;
+                if(startTimeBtwAttack < timeBtwAttack ){
+                anims.Attack();
                 for(int i = 0; i < playerToDamage.Length; i++){
                     Debug.Log("give player " + damage);
                     playerToDamage[i].GetComponent<Player>().TakeDamage(damage);
+                    anims.Following(false);
 
                 }
             }
-        seeker.StartPath(rb.position, playerPF.position, OnPathComplete);
         }else{
             anims.Following(false);
         }
     }
-
+    }
     void OnPathComplete(Path p){
         if (!p.error){
             path = p;

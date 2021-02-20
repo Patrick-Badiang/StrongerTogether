@@ -113550,7 +113550,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6.18
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -113653,8 +113653,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1056295939}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.1, y: -34, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.0999997, y: -34, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -120797,7 +120797,7 @@ MonoBehaviour:
   m_Follow: {fileID: 8444435224942772547}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 5
+    OrthographicSize: 6.18
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -123670,6 +123670,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7116232404722688282, guid: c8dba51ff3b9c4d4bbe0500fcec439b0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8844301499441392825, guid: c8dba51ff3b9c4d4bbe0500fcec439b0,
         type: 3}
       propertyPath: m_RootOrder
@@ -123753,7 +123758,7 @@ PrefabInstance:
     - target: {fileID: 3411805890687203624, guid: 1b34a251b13191843bdfac0ed4197a48,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.2
+      value: 7.4
       objectReference: {fileID: 0}
     - target: {fileID: 3411805890687203624, guid: 1b34a251b13191843bdfac0ed4197a48,
         type: 3}
@@ -123809,16 +123814,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MidSpirits 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8991912262264618431, guid: 1b34a251b13191843bdfac0ed4197a48,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9186650671166378007, guid: 1b34a251b13191843bdfac0ed4197a48,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b34a251b13191843bdfac0ed4197a48, type: 3}
