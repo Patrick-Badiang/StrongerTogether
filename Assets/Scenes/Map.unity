@@ -135291,6 +135291,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3178477407251417379, guid: 1b34a251b13191843bdfac0ed4197a48,
+        type: 3}
+      propertyPath: startTimeBtwAttack
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3411805890687203624, guid: 1b34a251b13191843bdfac0ed4197a48,
         type: 3}
       propertyPath: m_RootOrder
