@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour
     
     }
 
-    void TakeDamage(float damage){
+    public void TakeDamage(float damage){
         healthAmount -= damage;
         healthBar.SetHealth(healthAmount);
     }

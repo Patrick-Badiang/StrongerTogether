@@ -109,7 +109,7 @@ public class Enemy : MonoBehaviour
         Collider2D[] playerToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsPlayer);
                 for(int i = 0; i < playerToDamage.Length; i++){
                     if(playerToDamage != null){
-                    playerToDamage[i].GetComponent<Player>().TakeDamage(damage);
+                    playerToDamage[i].GetComponent<PlayerController>().TakeDamage((float)damage);
                     }
                 }
                 anim.SetBool("attack", true);
