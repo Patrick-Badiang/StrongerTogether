@@ -12,6 +12,8 @@ public class EnemyAI : MonoBehaviour
 
     public float timeBtwAttack = 5f;
     public float startTimeBtwAttack = 3f;
+    public float attackDelay;                           //Gives time for Attack Anim
+
     public int damage;
     public Transform attackPos;
     public LayerMask whatIsPlayer;
@@ -20,6 +22,8 @@ public class EnemyAI : MonoBehaviour
     public float nextWaypointDistance = 3f;
     public float range = 2f;
     public float attackRange = 1f;
+    public bool isAlive = true;
+    public bool ableToAttack = true;
 
     public Transform enemyGFX;
     public Animator enemyAnim;
@@ -48,28 +52,35 @@ public class EnemyAI : MonoBehaviour
     void UpdatePath(){
 
         float targetDistance = Vector2.Distance(playerPF.position, rb.position);
-        if (targetDistance <=range){
-        if(seeker.IsDone())
+        
+    if(isAlive)
+        {
+            if ((targetDistance <=range))
+            {
 
-        seeker.StartPath(rb.position, playerPF.position, OnPathComplete);
+                if(seeker.IsDone()){
 
-        float withinRange = Vector2.Distance(playerPF.position, rb.position);
-            if (withinRange <= attackRange){
-            Collider2D[] playerToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsPlayer);
-            timeBtwAttack = startTimeBtwAttack;
-                if(startTimeBtwAttack < timeBtwAttack ){
-                anims.Attack();
-                for(int i = 0; i < playerToDamage.Length; i++){
-                    Debug.Log("give player " + damage);
-                    playerToDamage[i].GetComponent<Player>().TakeDamage(damage);
-                    anims.Following(false);
+                seeker.StartPath(rb.position, playerPF.position, OnPathComplete);
 
+                float withinRange = Vector2.Distance(playerPF.position, rb.position);
+                    if ((withinRange <= attackRange))
+                    {
+                        anims.CanAttack(true);
+                        
+                    
+                        anims.Following(false);
+                        
+                    }else 
+                    anims.CanAttack(false);
+                    anims.Following(true);
+                    
                 }
+            }else if((targetDistance >= range)){
+                anims.Following(false);
             }
-        }else{
+        }else if(!isAlive){
             anims.Following(false);
         }
-    }
     }
     void OnPathComplete(Path p){
         if (!p.error){
@@ -107,6 +118,16 @@ public class EnemyAI : MonoBehaviour
 
     }
 
+    public void Kill(){
+        isAlive = false;
+    }
+
+    
+
+    void OnDrawGizmosSelected(){
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(attackPos.position, attackRange);
+    }
     
 
 }

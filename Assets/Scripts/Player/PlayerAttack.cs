@@ -5,13 +5,17 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
 
+
     private float timeBtwAttack; 
     public float startTimeBtwAttack;
     public Animator playerAnim;
 
     public Transform attackPos;
     public float attackRange;
+
     public int damage;
+    public DamageType damageType;
+
 
     public LayerMask whatIsEnemy;
 
@@ -26,12 +30,13 @@ public class PlayerAttack : MonoBehaviour
             //then you can atack
             if(Input.GetButtonDown("Fire1")){
             playerAnim.SetTrigger("attack");
-            Debug.Log("attacking");
+            
             Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemy);
             timeBtwAttack = startTimeBtwAttack;
                 for(int i = 0; i < enemiesToDamage.Length; i++){
-                    enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
-
+                    if(enemiesToDamage != null){
+                    enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damage, damageType);
+                    }
                 }
             }
         }else{
@@ -39,6 +44,7 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
+    
     void OnDrawGizmosSelected(){
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackPos.position, attackRange);

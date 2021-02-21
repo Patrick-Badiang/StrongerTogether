@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     
     
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +19,8 @@ public class Player : MonoBehaviour
 
     }
 
+
+    
 
     public void TakeDamage(int damage){
         Debug.Log("im hit" + damage);

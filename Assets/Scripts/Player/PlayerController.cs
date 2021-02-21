@@ -37,9 +37,14 @@ public class PlayerController : MonoBehaviour
     { 
 
         move_x = Input.GetAxis("Horizontal");
-        playerAnim.SetFloat("Speed", Mathf.Abs(move_x));
            
         move_y = Input.GetAxis("Vertical");
+
+        if( (move_x != 0) || (move_y != 0)){
+            playerAnim.SetBool("Moving", true);
+        }else{
+            playerAnim.SetBool("Moving", false);
+        }
         movement = new Vector2 (move_x * mvmt_speed, move_y * mvmt_speed);
     }
 
@@ -65,7 +70,11 @@ public class PlayerController : MonoBehaviour
       
     }
 
-    void TakeDamage(float damage){
+    public void GiveElement(DamageType damageType){
+    
+    }
+
+    public void TakeDamage(float damage){
         healthAmount -= damage;
         healthBar.SetHealth(healthAmount);
     }

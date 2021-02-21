@@ -217,6 +217,7 @@ MonoBehaviour:
   attackPos: {fileID: 1166438921855778822}
   attackRange: 2
   damage: 20
+  damageType: {fileID: 11400000, guid: 1776af6092d961b46bc9efdb001e22c2, type: 2}
   whatIsEnemy:
     serializedVersion: 2
     m_Bits: 64
