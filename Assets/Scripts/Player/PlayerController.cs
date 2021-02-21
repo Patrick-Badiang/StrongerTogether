@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     public float healthAmount;
     
     public LayerMask whatIsEnemy;
-    public Health healthBar;
+    public HealthBar healthBar;
 
 
 
@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();   
         someScale = transform.localScale.x; // assuming this is facing right
         movement = new Vector2 (0, 0);
-
+        healthBar.SetMaxHealth(healthAmount);
     }
 
     // Update is called once per frame
