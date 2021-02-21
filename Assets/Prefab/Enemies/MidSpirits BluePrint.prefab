@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1055539615868696987
 Transform:
   m_ObjectHideFlags: 0
@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8962157038182218119}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.01, y: 0.03, z: 2.0633163}
+  m_LocalPosition: {x: 0.01, y: 0.47, z: 2.0633163}
   m_LocalScale: {x: 0.9995872, y: 0.9630403, z: 1.4736654}
   m_Children: []
   m_Father: {fileID: 3411805890687203624}
@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 3178477407251417378}
   - component: {fileID: 3178477407251417379}
   m_Layer: 6
-  m_Name: MidSpirits 1
+  m_Name: MidSpirits BluePrint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -164,6 +164,7 @@ MonoBehaviour:
   anims: {fileID: 3178477407251417379}
   timeBtwAttack: 1
   startTimeBtwAttack: 3
+  attackDelay: 0
   damage: 10
   attackPos: {fileID: 1055539615868696987}
   whatIsPlayer:
@@ -172,7 +173,9 @@ MonoBehaviour:
   speed: 300
   nextWaypointDistance: 3
   range: 7
-  attackRange: 3
+  attackRange: 1.11
+  isAlive: 1
+  ableToAttack: 1
   enemyGFX: {fileID: 1055539615868696987}
   enemyAnim: {fileID: 3178477407251417378}
 --- !u!50 &9213835697150233794
@@ -188,7 +191,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -294,5 +297,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96acb20242855914a959e9cbbae11886, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
+  enemyAI: {fileID: 8121863259590447933}
+  damageType: {fileID: 11400000, guid: 5c1ee370af312424393f561c8e9b4c85, type: 2}
   anim: {fileID: 3178477407251417378}
+  vulnerableDamageTypes:
+  - {fileID: 11400000, guid: 1776af6092d961b46bc9efdb001e22c2, type: 2}
+  attackPos: {fileID: 1055539615868696987}
+  whatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 8
+  health: 40
+  damage: 10
+  isKilled: 0
+  canAttack: 0
+  deathDelay: 1
+  attackDelay: 0.5
+  attackRange: 1
+  startTimeBtwAttack: 5
