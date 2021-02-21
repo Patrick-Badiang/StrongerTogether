@@ -27,8 +27,11 @@ public class Enemy : MonoBehaviour
     public float startTimeBtwAttack = 3f;               //Makes it so the enemy can only attack every set amount of time 
                                                         // "startTimeBtwAttack = 3f" Allows the enemy attack ever 3 seconds
 
+    public HealthBar healthBar;
+
     void Start()
     {
+        healthBar.SetMaxHealth(health);
         isKilled = false;
     }
 
@@ -62,7 +65,7 @@ public class Enemy : MonoBehaviour
         }
                 
         health -= damage;
-        
+        healthBar.SetHealth(health);
         anim.SetTrigger("hit");
 
 
