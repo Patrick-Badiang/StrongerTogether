@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour 
 {
-    
-    public float mvmt_speed;
+
+     public float mvmt_speed;
     public float move_x;
     public float move_y;
-
+    
     private Rigidbody2D rb;
     private Vector2 movement;
     private float someScale;
@@ -52,8 +52,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate(){
 
         rb.MovePosition(rb.position + movement);
-        FlipPlayer();
-        
+        FlipPlayer();        
     }
     
     /*

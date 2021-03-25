@@ -3,32 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Enemy : MonoBehaviour
+public class Enemy : Interactions
 {
+    public int damage;
 
-    public EnemyAI enemyAI;                            //Reference to script
-    public DamageType damageType;                      //Drag in the Scriptable Object
-    public Animator anim;                              //Animator is MidSpiritsGFX
-    public DamageType[] vulnerableDamageTypes;         //Drag in the Scriptable Objects that have the correct name for vulnerability
-    public Transform attackPos;                        //Drag in Children
-    public LayerMask whatIsPlayer;                     //Layer of Player
-
-    public int health;                                 //Health
-    public int damage;                                 //Amount of damage you want enemy to do
+    public float timeBtwAttack = 5f;
+    public float startTimeBtwAttack = 3f;
+    public float attackDelay;  
+    public bool isAlive = true;
+     
     
-    public bool isKilled;                              //Allows scripts not to error when is destroyed
-    public bool canAttack;
-
-    public float deathDelay;                            //Gives time for Death Anims
-    public float attackDelay;                           //Gives time for Attack Anim
-
-    public float attackRange = 1f;                      //Affects the Gizmos
-    private float timeBtwAttack;                     
-    public float startTimeBtwAttack = 3f;               //Makes it so the enemy can only attack every set amount of time 
-                                                        // "startTimeBtwAttack = 3f" Allows the enemy attack ever 3 seconds
-
-    public HealthBar healthBar;
-
     void Start()
     {
         healthBar.SetMaxHealth(health);
@@ -40,15 +24,15 @@ public class Enemy : MonoBehaviour
         
         if((health <= 0) && !isKilled)
         {
-            enemyAI.Kill();
-            StartCoroutine(Die(deathDelay));
+            Kill();
+            StartCoroutine(Die(deathDelay, 1f));
             isKilled = true;
         }else 
             if((timeBtwAttack <= 0) && canAttack)
                 {
                     timeBtwAttack = startTimeBtwAttack;
 
-                    StartCoroutine(DoDamage(attackDelay));
+                    StartCoroutine(DoDamage(attackDelay, damage, startTimeBtwAttack));
                 }else{
                     timeBtwAttack -= Time.deltaTime;
                 }
@@ -78,7 +62,7 @@ public class Enemy : MonoBehaviour
     public void Attack(){
         
             //then you can atack            
-               StartCoroutine(DoDamage(attackDelay));
+               StartCoroutine(DoDamage(attackDelay, damage, startTimeBtwAttack));
                Debug.Log("Attacking");
         
     }
@@ -86,43 +70,7 @@ public class Enemy : MonoBehaviour
         anim.SetBool("following", follow);
     }
 
-    IEnumerator Die(float deathdelay){
-        anim.SetBool("die", true);
-
-
-                
-        yield return new WaitForSeconds(deathDelay);
-
-        if(gameObject != null){
-        Destroy(gameObject);
-        }
-
-        Collider2D[] playerToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsPlayer);
-                for(int i = 0; i < playerToDamage.Length; i++){
-                    if(playerToDamage != null){
-                    playerToDamage[i].GetComponent<PlayerController>().GiveElement(damageType);
-                    }
-                }
-
-        
+    public void Kill(){
+        isAlive = false;
     }
-
-    public IEnumerator DoDamage(float attackDelay){
-        
-        Collider2D[] playerToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsPlayer);
-                for(int i = 0; i < playerToDamage.Length; i++){
-                    if(playerToDamage != null){
-                    playerToDamage[i].GetComponent<PlayerController>().TakeDamage((float)damage);
-                    }
-                }
-                anim.SetBool("attack", true);
-
-        yield return new WaitForSeconds(attackDelay);
-
-        anim.SetBool("attack", false);
-
-        yield return new WaitForSeconds(startTimeBtwAttack);
-
-    }
-
 }

@@ -6,7 +6,7 @@ using Pathfinding;
 public class AI : MonoBehaviour
 {
     
-    public GameObject playerPF;
+    // GameObject playerPF;
     public Transform target;
 
     public float speed= 200f;
@@ -27,7 +27,7 @@ public class AI : MonoBehaviour
     void Start(){
 
         // playerPF = GameObject.FindWithTag("Player");
-        // target = GetComponent<GameObject>(playerPf);
+        // target = GetComponent<GameObject>();
 
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();

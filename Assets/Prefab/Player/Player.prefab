@@ -305,7 +305,7 @@ MonoBehaviour:
   healthAmount: 0
   whatIsEnemy:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   healthBar: {fileID: 1120811651204162538}
 --- !u!114 &5231184995693100079
 MonoBehaviour:

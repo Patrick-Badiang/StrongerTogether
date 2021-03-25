@@ -134881,7 +134881,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 8444435224942772547}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -135032,6 +135032,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2029969953, guid: c8dba51ff3b9c4d4bbe0500fcec439b0, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1120811650628505563, guid: c8dba51ff3b9c4d4bbe0500fcec439b0,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1120811652398841327, guid: c8dba51ff3b9c4d4bbe0500fcec439b0,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1120811652398841327, guid: c8dba51ff3b9c4d4bbe0500fcec439b0,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2106761231310494698, guid: c8dba51ff3b9c4d4bbe0500fcec439b0,
         type: 3}
       propertyPath: m_RootOrder
@@ -135047,6 +135066,11 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1427017232}
+    - target: {fileID: 8329321745372988565, guid: c8dba51ff3b9c4d4bbe0500fcec439b0,
+        type: 3}
+      propertyPath: whatIsEnemy.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 8844301499441392825, guid: c8dba51ff3b9c4d4bbe0500fcec439b0,
         type: 3}
       propertyPath: m_RootOrder
@@ -135291,11 +135315,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3178477407251417379, guid: 1b34a251b13191843bdfac0ed4197a48,
-        type: 3}
-      propertyPath: startTimeBtwAttack
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 3411805890687203624, guid: 1b34a251b13191843bdfac0ed4197a48,
         type: 3}
       propertyPath: m_RootOrder
@@ -135304,7 +135323,7 @@ PrefabInstance:
     - target: {fileID: 3411805890687203624, guid: 1b34a251b13191843bdfac0ed4197a48,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.4
+      value: 65.7
       objectReference: {fileID: 0}
     - target: {fileID: 3411805890687203624, guid: 1b34a251b13191843bdfac0ed4197a48,
         type: 3}

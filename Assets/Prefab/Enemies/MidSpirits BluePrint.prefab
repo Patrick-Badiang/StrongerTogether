@@ -307,14 +307,14 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 8
-  health: 40
+  health: 100
   damage: 10
   isKilled: 0
   canAttack: 0
   deathDelay: 1
   attackDelay: 0.5
   attackRange: 1
-  startTimeBtwAttack: 5
+  startTimeBtwAttack: 2
   healthBar: {fileID: 5531927968933334460}
 --- !u!1001 &8012141206248646824
 PrefabInstance:

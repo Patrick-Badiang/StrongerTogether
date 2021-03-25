@@ -8,21 +8,11 @@ public class EnemyAI : MonoBehaviour
     
     public Transform playerPF;
 
-    public Enemy anims;
-
-    public float timeBtwAttack = 5f;
-    public float startTimeBtwAttack = 3f;
-    public float attackDelay;                           //Gives time for Attack Anim
-
-    public int damage;
-    public Transform attackPos;
-    public LayerMask whatIsPlayer;
+    Enemy anims;
 
     public float speed= 200f;
     public float nextWaypointDistance = 3f;
     public float range = 2f;
-    public float attackRange = 1f;
-    public bool isAlive = true;
     public bool ableToAttack = true;
 
     public Transform enemyGFX;
@@ -37,6 +27,7 @@ public class EnemyAI : MonoBehaviour
     Rigidbody2D rb;
 
     void Start(){
+        anims = GetComponent<Enemy>();
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
 
@@ -53,7 +44,7 @@ public class EnemyAI : MonoBehaviour
 
         float targetDistance = Vector2.Distance(playerPF.position, rb.position);
         
-    if(isAlive)
+    if(anims.isAlive)
         {
             if ((targetDistance <=range))
             {
@@ -63,7 +54,7 @@ public class EnemyAI : MonoBehaviour
                 seeker.StartPath(rb.position, playerPF.position, OnPathComplete);
 
                 float withinRange = Vector2.Distance(playerPF.position, rb.position);
-                    if ((withinRange <= attackRange))
+                    if ((withinRange <= anims.attackRange))
                     {
                         anims.CanAttack(true);
                         
@@ -78,7 +69,7 @@ public class EnemyAI : MonoBehaviour
             }else if((targetDistance >= range)){
                 anims.Following(false);
             }
-        }else if(!isAlive){
+        }else if(!anims.isAlive){
             anims.Following(false);
         }
     }
@@ -118,17 +109,6 @@ public class EnemyAI : MonoBehaviour
 
     }
 
-    public void Kill(){
-        isAlive = false;
-    }
-
-    
-
-    void OnDrawGizmosSelected(){
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(attackPos.position, attackRange);
-    }
-    
 
 }
 
